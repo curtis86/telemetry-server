@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# telemetry-server
+
+# BASH MODES
+set -u
+set -o pipefail
+
+# CONSTANTS
+readonly HOME_DIR="$( cd "$( dirname $0 )" ; pwd )"
+readonly INCLUDES_DIR="${HOME_DIR}/includes"
+
+# INCLUDES
+source "${INCLUDES_DIR}/bp.sh"
+source "${INCLUDES_DIR}/telemetry-server_vars.sh"
+source "${INCLUDES_DIR}/telemetry-server_functions.sh"
+
+# MAIN
+main() {
+  
+  ts::setup
+  ts::start
+}
+
+main $@
